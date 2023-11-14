@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Search Flights</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/search.css')}}">
+<link rel="stylesheet" href="../static/css/search.css">
+{% endblock %}
+
+{% block body %}
+<main>
+    <h1>SEARCH</h1>
+
+    <form action="/search" method="post">
+        <div class="input">
+            <div class="selection1">
+                <label for="origin">Select Origin:</label>
+                <br>
+                <select name="origin" id="origin">
+                    <option value="" disabled selected>Select an Airport</option>
+                    {% for i in airports %}
+                
+                    {% set code = i[0] %}
+                    {% set airport = i[1] %}
+                    
+                    <option value="{{code}}">{{airport}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="selection2">
+                <label for="destination">Select Destination:</label>
+                <br>
+                <select name="destination" id="destination">
+                    <option value="" disabled selected>Select an Airport</option>
+                    {% for i in airports %}
+
+                    {% set code = i[0] %}
+                    {% set airport = i[1] %}
+
+                    <option value="{{code}}">{{airport}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <input type="submit" value="SUBMIT">
+    </form>
+
+    <div class="result">
+        <div class="row header">
+            <h3>Plane ID</h3>
+            <h3>Number of Seats</h3>
+            <h3>Company</h3>
+            <h3>Fare</h3>
+        </div>
+
+        {% if available == "Start" %}
+
+        <div class="info data">
+            <h2>Please Enter Origin and Destination</h2>
+        </div>
+        
+        {% elif available == "Not Found" %}
+
+        <div class="info data">
+            <h2>Sorry No Flights are Available.</h2>
+        </div>
+
+        {% else %}
+        {% for i in available %}
+
+        {% set id = i[0][0] %}
+        {% set seats = i[0][1] %}
+        {% set company = i[1][0] %}
+        {% set fare = i[1][1] %}
+
+        <div class="row data">
+            <h3>{{ id }}</h3>
+            <h3>{{ seats }}</h3>
+            <h3>{{ company }}</h3>
+            <h3>{{ fare }}</h3>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
