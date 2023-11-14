@@ -1,0 +1,44 @@
+html {
+    overflow: hidden;
+}
+
+body{
+    background: url(../images/home-bg.jpg);
+    background-size: cover;
+    background-position: -125px;
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+    color: #89f9ff;
+    font-family: "Righteous";
+    margin: 150px 0px 10px 0px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #C7FCFF;
+    font-family: "Righteous";
+    margin: 10px 0px;
+}
+
+h4 {
+    font-weight: bold;
+    font-family: roboto;
+    color: #B6FFFA;
+}
+
+p {
+    font-family: roboto;
+    color: white;
+}

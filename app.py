@@ -49,6 +49,32 @@ def search():
         print(available)
         return render_template("search.html", airports=airport, available=available)
 
+@app.route("/book", methods=['POST', 'GET'])
+def book():
+    if request.method == "GET":
+        return render_template("book.html")
+    else:
+        data = request.form
+        name = data["name"]
+        number = data["number"]
+        pid = data["id"]
+        email = data["email"]
+        date = data["date"]
+
+        cur.execute(f"select * from airplane where id = {pid}")
+        result = cur.fetchall() 
+        num_seats = result[0][1]
+        plane_type = result[0][2] 
+
+        cur.execute(f"select company,fare from airplane_type where type = '{plane_type}'")
+        result = cur.fetchall()
+        company = result[0][0]
+        fare = result[0][1]
+
+        personal_details = [name, number, email, date]
+        flight_details = [pid, num_seats, company, fare]
+        details = [personal_details, flight_details]
+        return render_template("details.html", details=details)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(debug=True, port=5000)

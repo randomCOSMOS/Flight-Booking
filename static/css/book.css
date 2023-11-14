@@ -50,7 +50,12 @@ label {
     font-weight: bold;
 }
 
-select {
+label:not(:first-of-type) {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+input {
     all: unset;
     background-color: white;
     border-radius: 20px;
@@ -72,49 +77,9 @@ input[type='submit'] {
     box-shadow: 0px 0px 10px 2px rgb(21, 20, 20);
     cursor: pointer;
     transition: 0.3s;
+    margin-top: 30px;
 }
 
 input[type='submit']:hover {
     box-shadow: 0px 0px 5px 1px rgb(21, 20, 20);
-}
-
-.result {
-    border: 3px solid black;
-    background-color: #d0dee3;
-    border-radius: 20px;
-}
-
-.row {
-    display: flex;
-}
-
-.row h3 {
-    width: 180px;
-    margin: 0px;
-    padding: 10px;
-}
-
-.info h2 {
-    width: 100%;
-    margin: 0px;
-    padding: 10px;
-    text-align: center;
-}
-
-.row h3:not(:last-of-type) {
-    border-right: 1px solid black;
-}
-
-.row:not(:last-of-type) h3 {
-    border-bottom: 2px solid black;
-}
-
-.header {
-    color: hsl(231, 67%, 49%);
-    font-family: "Righteous";
-}
-
-.data { 
-    color: #1A7BEE;
-    font-family: roboto;
 }

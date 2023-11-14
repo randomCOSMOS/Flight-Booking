@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Booking Details</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/details.css')}}">
+<link rel="stylesheet" href="../static/css/details.css">
+{% endblock %}
+
+{% block body %}
+<h1>Booking Appproved!</h1>
+<main>
+
+    <div class="personal">
+        <h2>Personal Details:</h2>
+
+        <h4>Name:</h4><p>{{ details[0][0] }}</p>
+        <h4>Phone Number:</h4><p>{{ details[0][1] }}</p>
+        <h4>E-mail:</h4><p>{{ details[0][2] }}</p>
+        <h4>Date:</h4><p>{{ details[0][3] }}</p>
+    </div>
+
+    <div class="flight">
+        <h2>Flight Details:</h2>
+
+        <h4>Id:</h4><p>{{ details[1][0] }}</p>
+        <h4>Number of Seats:</h4><p>{{ details[1][1] }}</p>
+        <h4>Company:</h4><p>{{ details[1][2] }}</p>
+        <h4>Fare:</h4><p>{{ details[1][3] }}</p>
+    </div>
+</main>
+{% endblock %}

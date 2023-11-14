@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Book FLights</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/book.css')}}">
+<link rel="stylesheet" href="../static/css/book.css">
+{% endblock %}
+
+{% block body %}
+<main>
+    <h1>BOOKING</h1>
+
+    <form action="/book" method="post">
+        <div class="input">
+            <div class="selection1">
+                <label for="name">Name:</label>
+                <br>
+                <input type="text" name="name" id="name" required>
+                <br>
+                <label for="number">Phone No:</label>
+                <br>
+                <input type="tel" name="number" id="number" required>
+            </div>
+
+            <div class="selection2">
+                <label for="id">Plane Id:</label>
+                <br>
+                <input type="number" name="id" id="id" required>
+                <br>
+                <label for="email">E-mail:</label>
+                <br>
+                <input type="email" name="email" id="email" required>
+            </div>
+        </div>
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date">
+        <input type="submit" value="SUBMIT">
+    </form>
+</main>
+{% endblock %}
