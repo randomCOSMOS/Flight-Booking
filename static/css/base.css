@@ -1,0 +1,49 @@
+@font-face{
+    font-family: lato;
+    src: url("../font/Lato-Regular.ttf");
+}
+
+@font-face{
+    font-family: lato;
+    src: url("../font/Lato-Bold.ttf");
+    font-weight: bold;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: rgb(196, 196, 196);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    padding: 20px 25px;
+}
+
+nav img {
+    height: 40px;
+}
+
+nav div {
+    display: flex;
+    padding-right: 30px;
+}
+
+nav div a {
+    text-decoration: none;
+    color: skyblue;
+    font-size: 1.1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 10px;
+}
+
+nav div a:hover {
+    text-decoration: underline;
+}

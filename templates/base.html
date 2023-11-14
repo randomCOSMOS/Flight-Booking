@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <nav>
+        <a href="/">
+            <img src="{{url_for('static', filename='images/logo.png')}}" alt="LOGO">
+        </a>
+        <div>
+            <a href="/">Home</a>
+            <a href="/book">Book Flight</a>
+            <a href="/search">Search FLight</a>
+        </div>
+    </nav>
+    
+    <div id="body">
+        {% block body %}{% endblock %}
+    </div>
+
+    <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='js/nav.js')}}"></script>
+    {% block js %}{% endblock %}
+</body>
+
+</html>
